@@ -1,38 +1,36 @@
 # :bulb: A Guide to Production Level Deep Learning :clapper: :scroll:  :ferry:
 🇨🇳Translation in [Chinese](https://github.com/alirezadir/Production-Level-Deep-Learning/blob/master/other-languages/Chinese(Simplified).md)
 
-:label: Note: This repo is still under development, and all feedback and contribution are very welcome :blush:
+:label: Примечание: Этот репозиторий все еще находится в стадии разработки, и любые отзывы и предложения очень приветствуются. :blush:
 
-Deploying deep learning models in production can be challenging, as it is far beyond training models with good performance. Several distinct components need to be designed and developed in order to deploy a production level deep learning system (seen below):
-
+Внедрение моделей глубокого обучения в производство может быть сложной задачей, так как это выходит далеко за рамки тренировочных моделей с хорошей производительностью. Для внедрения системы глубокого обучения на производственном уровне необходимо спроектировать и разработать несколько отдельных компонентов (см. ниже):
 <p align="center">
 <img src="https://github.com/alirezadir/Production-Level-Deep-Learning/blob/master/images/components.png" title="" width="95%" height="95%">
 </p>
 
-This repo aims to be an engineering guideline for building production-level deep learning systems which will be deployed in real world applications. 
+Этот репо призван стать инженерным руководством для создания систем глубокого обучения на производственном уровне, которые будут применяться в реальных условиях. 
+Представленный здесь материал заимствован из [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com) (авторство [Питера Абиля](https://people.eecs.berkeley.edu/~pabbeel/) в UC Berkeley, [Джоша Тобина](http://josh-tobin.com/) в OpenAI, и [Сергея Караева](https://sergeykarayev.com/) в Turnitin), [TFX workshop](https://conferences.oreilly.com/tensorflow/tf-ca/public/schedule/detail/79327) за авторством [Роберта Кроу](https://www.linkedin.com/in/robert-crowe/), и [Pipeline.ai](https://pipeline.ai/) [Advanced KubeFlow Meetup](https://www.meetup.com/Advanced-KubeFlow/) от [Криса Фрегли](https://www.linkedin.com/in/cfregly/).
 
-The material presented here is borrowed from [Full Stack Deep Learning Bootcamp](https://fullstackdeeplearning.com) (by [Pieter Abbeel](https://people.eecs.berkeley.edu/~pabbeel/) at UC Berkeley, [Josh Tobin](http://josh-tobin.com/) at OpenAI, and [Sergey Karayev](https://sergeykarayev.com/) at Turnitin), [TFX workshop](https://conferences.oreilly.com/tensorflow/tf-ca/public/schedule/detail/79327) by [Robert Crowe](https://www.linkedin.com/in/robert-crowe/), and [Pipeline.ai](https://pipeline.ai/)'s [Advanced KubeFlow Meetup](https://www.meetup.com/Advanced-KubeFlow/) by [Chris Fregly](https://www.linkedin.com/in/cfregly/).
-
-# Machine Learning Projects
-Fun :flushed: fact: **85% of AI projects fail**. <sup>[1](#fsdl)</sup> Potential reasons include: 
-- Technically infeasible  or poorly scoped 
-- Never make the leap to production 
-- Unclear success criteria (metrics)
-- Poor team management 
+# Проекты в Машинном Обучении
+Забавный :flushed: факт: **85% проектов в ИИ проваливаются**. <sup>[1](#fsdl)</sup> Потенциальные причины включают в себя: 
+- Технически неосуществимый или плохо исследованный проект 
+- Невозможность дойти до запуска в производство 
+- Неясные критерии и метрики успеха
+- Плохой менеджмент
   
 ## 1. ML Projects lifecycle
 <p align="center">
 <img src="https://github.com/alirezadir/Production-Level-Deep-Learning/blob/master/images/lifecycle.png" title="" width="95%" height="95%"></p>
 
-- Importance of understanding state of the art in your domain:
-  - Helps to understand what is possible 
-  - Helps to know what to try next 
-## 2. Mental Model for ML project 
-  The two important factors to consider when defining and prioritizing ML projects:
-  - High Impact:
-    - Complex parts of your pipeline 
-    - Where "cheap prediction" is valuable
-    - Where automating complicated manual process is valuable 
+- Важность понимания современного положения вещей в вашей области:
+  - Помогает понять, что возможно 
+  - Помогает понять, что можно попробовать 
+## 2. Ментальная модель для проекта в ML 
+  Два важных фактора, которые необходимо учитывать при определении и приоритизации проектов ML:
+  - Сильный эффект:
+    - Сложные части вашего пайплайна 
+    - Там, где "простого предсказания" достаточно
+    - Там, где автоматизация сложного ручного процесса имеет большое значение
   - Low Cost:
     - Cost is driven by: 
       - Data availability 
